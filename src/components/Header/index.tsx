@@ -9,7 +9,7 @@ export function Header() {
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <Image src="/logo.svg" alt="Logo" width="90" height="90" />
+          <Image src="/logo.svg" alt="Logo" width="110" height="31" />
           <nav>
             <Link className={styles.active} href="/">
               Home
