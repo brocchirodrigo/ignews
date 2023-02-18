@@ -14,13 +14,13 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user }) {
-      const { email } = user;
+      const { email, name } = user;
 
       try {
         await fauna.query(
           Q.If(
             Q.Not(Q.Exists(Q.Match(Q.Index("idx_email"), email))),
-            Q.Create(Q.Collection("users"), { data: { email } }),
+            Q.Create(Q.Collection("users"), { data: { email, name } }),
             Q.Get(Q.Match(Q.Index("idx_email"), email))
           )
         );
@@ -33,5 +33,3 @@ export default NextAuth({
     },
   },
 });
-
-//await fauna.query(Q.Create(Q.Collection("users"), { data: { email } }));

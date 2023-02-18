@@ -28,6 +28,7 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (!customerId) {
       const stripeCustomer = await stripe.customers.create({
+        name: session.user.name,
         email: session.user.email,
       });
 
@@ -35,6 +36,7 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
         Q.Update(Q.Ref(Q.Collection("users"), user.ref.id), {
           data: {
             stripe_customer_id: stripeCustomer.id,
+            stripe_customer_name: session.user.name,
           },
         })
       );
