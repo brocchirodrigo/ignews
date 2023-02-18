@@ -53,9 +53,3 @@ export async function saveSubscription(
     );
   }
 }
-
-/**
-  await fauna.query(
-    Q.Create(Q.Collection("subscriptions"), { data: subscriptionData })
-  );
- */
