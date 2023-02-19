@@ -14,7 +14,7 @@ export function Header() {
             <Link className={styles.active} href="/">
               Home
             </Link>
-            <Link className={styles.active} href="/post">
+            <Link className={styles.active} href="/posts">
               Posts
             </Link>
           </nav>

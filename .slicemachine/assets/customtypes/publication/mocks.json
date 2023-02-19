@@ -1,0 +1,82 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "settlers"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "shine",
+    "type": "Text"
+  },
+  "content": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Ipsum aute labore do. Id cillum consequat proident tempor ad consectetur sunt."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "publication$305b470d-2b3d-4e65-a693-c544720e0ce9",
+        "name": "publication",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "FieldContent",
+              "value": "whether",
+              "type": "Text"
+            },
+            "firstcontent": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Enim occaecat veniam ut. Eiusmod proident aliquip enim pariatur eu cupidatat ad est. In ex nulla ullamco aliquip dolore ipsum nulla labore veniam."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "subtitle",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "then",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "content",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Culpa ipsum qui tempor exercitation exercitation occaecat officia. Pariatur labore consequat ut. Sunt labore dolore sint cillum ex et culpa ea in nostrud duis sit ea voluptate mollit."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
