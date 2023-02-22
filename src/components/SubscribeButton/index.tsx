@@ -10,9 +10,11 @@ interface SubscribeButtonProps {
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
   const { status } = useSession();
 
+  const isUserLoggedIn = status === "authenticated" ? true : false;
+
   async function handleSubscribe() {
-    if (status !== "authenticated") {
-      signIn("github");
+    if (!isUserLoggedIn) {
+      await signIn("google");
       return;
     }
 
@@ -32,12 +34,22 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
   }
 
   return (
-    <button
-      type="button"
-      className={styles.subscribeButton}
-      onClick={handleSubscribe}
-    >
-      Subscribe now
-    </button>
+    <>
+      <button
+        type="button"
+        className={styles.subscribeButton}
+        onClick={handleSubscribe}
+        disabled={!isUserLoggedIn}
+      >
+        Subscribe now
+      </button>
+      <br />
+      {!isUserLoggedIn && (
+        <div className={styles.needsLogin}>
+          <span>*</span> You need to stay logged in to subscribe. Click in login
+          button first 👆
+        </div>
+      )}
+    </>
   );
 }

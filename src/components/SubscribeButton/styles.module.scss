@@ -12,9 +12,28 @@
   align-items: center;
   justify-content: center;
   
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.8);
+    background: var(--grey-700);
+    color: var(--grey-300);
+  }
+
   transition: filter 0.2s;
 
   &:hover {
     filter: brightness(0.8);
+  }
+}
+
+.needsLogin {
+  font-size: 0.75rem;
+  color: var(--yellow-500);
+  align-items: baseline;
+  flex: auto;
+  flex-direction: row;
+
+  span {
+    color: var(--red-300);
   }
 }

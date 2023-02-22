@@ -25,7 +25,7 @@ export function SignInButton() {
       type="button"
       onClick={() => signIn("google")}
     >
-      <FaGoogle color="#eba417" /> Login com Google
+      <FaGoogle color="#eba417" /> Login with Google
     </button>
   );
 }

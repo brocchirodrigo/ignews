@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "../styles/home.module.scss";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
+import { useSession } from "next-auth/react";
 
 interface HomeProps {
   product: {
