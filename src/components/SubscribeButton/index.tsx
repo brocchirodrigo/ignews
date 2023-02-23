@@ -46,7 +46,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       <br />
       {!isUserLoggedIn && (
         <div className={styles.needsLogin}>
-          <span>*</span> You need to stay logged in to subscribe. Click in login
+          <span> * </span> You must be logged in to subscribe. Click login
           button first 👆
         </div>
       )}
