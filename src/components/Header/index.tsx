@@ -4,13 +4,17 @@ import styles from "./styles.module.scss";
 import { SignInButton } from "../SignInButton";
 
 import { ActiveLink } from "../ActiveLink";
+import Link from "next/link";
 
 export function Header() {
   return (
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <Image src="/logo.svg" alt="Logo" width="110" height="31" />
+          <Link href="/">
+            <Image src="/logo.svg" alt="Logo" width="110" height="31" />
+          </Link>
+
           <nav>
             <ActiveLink activeClassName={styles.active} href="/">
               Home
