@@ -2,13 +2,15 @@ import { api } from "../../services/api";
 import { getStripeJs } from "../../services/stripe-js";
 import styles from "./styles.module.scss";
 import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 interface SubscribeButtonProps {
   priceId: string;
 }
 
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
-  const { status } = useSession();
+  const router = useRouter();
+  const { status, data: session } = useSession();
 
   const isUserLoggedIn = status === "authenticated" ? true : false;
 
@@ -16,6 +18,10 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
     if (!isUserLoggedIn) {
       await signIn("google");
       return;
+    }
+
+    if (session?.activeSubscription) {
+      return router.push("posts");
     }
 
     try {
@@ -41,7 +47,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
         onClick={handleSubscribe}
         disabled={!isUserLoggedIn}
       >
-        Subscribe now
+        {!session?.activeSubscription ? "Subscribe now" : "Read Posts"}
       </button>
       <br />
       {!isUserLoggedIn && (

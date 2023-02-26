@@ -6,7 +6,6 @@ import Image from "next/image";
 import styles from "../styles/home.module.scss";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
-import { useSession } from "next-auth/react";
 
 interface HomeProps {
   product: {
@@ -43,9 +42,12 @@ export default function Home({ product }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve("price_1Mb8raLTI7wXcRVSGMtYNBZr", {
-    expand: ["product"],
-  });
+  const price = await stripe.prices.retrieve(
+    process.env.STRIPE_PRODUCT_PRICE_KEY,
+    {
+      expand: ["product"],
+    }
+  );
 
   const formatPrice =
     price.currency === "brl"
