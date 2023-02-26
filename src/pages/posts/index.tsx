@@ -5,8 +5,6 @@ import styles from "./styles.module.scss";
 import { GetStaticProps } from "next";
 import { getPrismicClient } from "../../services/prismic";
 
-// import { RichText } from "prismic-dom";
-
 interface IContentExcerpt {
   type: string;
   text?: string;
@@ -65,6 +63,7 @@ export const getStaticProps: GetStaticProps = async () => {
       excerpt:
         post.data.content.find(
           (c: IContentExcerpt) => c.type === "paragraph" && c.text !== ""
+          // @ts-ignore
         )?.text ?? "",
     };
   });
