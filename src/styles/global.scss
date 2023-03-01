@@ -5,7 +5,7 @@
 }
 
 :root {
-  --white: #FFFFFF;
+  --white: #ffffff;
 
   --grey-50: #e1e1e6;
   --grey-300: #a8a8b3;
@@ -15,7 +15,7 @@
   --grey-900: #121214;
 
   --cyan-500: #61dafb;
-  
+
   --yellow-500: #eba417;
 
   --red-300: #b30e0a;
@@ -31,7 +31,12 @@
   html {
     font-size: 87.5%;
   }
+}
 
+html,
+body {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -39,7 +44,11 @@ body {
   color: var(--white);
 }
 
-body, input, textarea, select, button {
+body,
+input,
+textarea,
+select,
+button {
   font: 400 1rem;
 }
 
