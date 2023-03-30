@@ -17,6 +17,14 @@ type User = {
 };
 
 const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
+  /**
+   * Update de assinatura para cancelar na data final
+   */
+
+  // await stripe.subscriptions.update("sub_1Mfm4ALTI7wXcRVSzclAAMqr", {
+  //   cancel_at_period_end: true,
+  // });
+
   if (req.method === "POST") {
     const session = await getSession({ req });
 
@@ -61,6 +69,24 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
       success_url: process.env.STRIPE_SUCCESS_URL,
       cancel_url: process.env.STRIPE_CANCEL_URL,
     });
+
+    /**
+     * Update da forma de pagamento
+     */
+    //   const stripeCheckoutSession = await stripe.checkout.sessions.create({
+    //     payment_method_types: ["card"],
+    //     mode: "setup",
+    //     customer: "cus_NQdKHUSBLYQaHI",
+    //     setup_intent_data: {
+    //       metadata: {
+    //         customer_id: "cus_NQdKHUSBLYQaHI",
+    //         subscription_id: "sub_1Mfm4ALTI7wXcRVSzclAAMqr",
+    //       },
+    //     },
+    //     billing_address_collection: "required",
+    //     success_url: process.env.STRIPE_SUCCESS_URL,
+    //     cancel_url: process.env.STRIPE_CANCEL_URL,
+    //   });
 
     return res.status(200).json({ sessionId: stripeCheckoutSession.id });
   } else {

@@ -1,7 +1,5 @@
 {
   "apiEndpoint": "https://ignews-reactjs-blog.prismic.io/api/v2",
-  "libraries": [
-    "@/slices"
-  ],
+  "libraries": ["@/slices"],
   "_latest": "0.7.0"
 }
