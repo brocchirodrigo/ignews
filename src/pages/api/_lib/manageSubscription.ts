@@ -31,7 +31,7 @@ export async function saveSubscription(
       subscription.current_period_start
     ),
     end_date_subscription: stripeFormatIsoDate(subscription.current_period_end),
-    canceled_at: stripeFormatIsoDate(subscription.cancel_at),
+    canceled_at: stripeFormatIsoDate(subscription.canceled_at),
     cancel_at_period_end: subscription.cancel_at_period_end,
     cancel_at: stripeFormatIsoDate(subscription.cancel_at),
   };
